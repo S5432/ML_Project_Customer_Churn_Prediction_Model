@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Customer Attrition Prediction</title>
+<!-- 
+    <link rel="stylesheet" href="D:\Customer_Attrition_Project_Machine_Learning\templates\styles.css"> -->
+
+<style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 50px;
+    background-color: #636b2f;
+}
+
+/* here we write the code for Paragram section */
+
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+
+}
+
+header {
+    background-color: #a9b270;
+    color: #fff;
+    padding: 40px 0;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+header h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 1.2rem;
+}
+
+h2 {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 2.5rem;
+    color: #fff;
+}
+
+.features {
+    margin-top: 60px;
+}
+
+.feature {
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.feature .icon {
+    width: 50px;
+    height: 50px;
+    margin-right: 20px;
+}
+
+.feature .icon img {
+    width: 100%;
+    height: 100%;
+}
+
+.feature .text h3 {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.feature .text p {
+    font-size: 1rem;
+    color: #555;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: 60px;
+}
+
+footer p {
+    font-size: 1rem;
+}
+
+/* here we write the code for Paragram section */
+
+
+
+.form-container {
+    max-width: 500px;
+    margin: auto;
+    padding: 20px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    color: #fff;
+  
+}
+
+.form-container input {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0 20px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    color: #fff;
+}
+
+.form-container input[type="submit"] {
+    background-color: #91af4c;
+    color: white;
+    border: none;
+}
+
+.form-container input[type="submit"]:hover {
+    background-color: #d7c528;
+}
+
+.result {
+    font-size: 3.5em;
+    color: #4CAF50;
+    text-align: center;
+    margin-top: 20px;
+}
+</style>
+
+</head>
+
+<body>
+
+
+    <header>
+        <div class="container">
+            <h1>Customer Attrition Prediction Tool</h1>
+            <P>Overview:
+                Customer Attrition Prediction Model helps businesses understand which customers are at risk of leaving.
+                By predicting customer churn, businesses can take proactive steps to retain valuable customers, improve
+                satisfaction, and enhance overall service quality. We will use this model to analyze all relevant
+                customer
+                data and develop model for focus on customer retention programs.Take proactive steps to retain valuable
+                customers by predicting who might leave your business.</P>
+
+
+        </div>
+    </header>
+
+    <div class="form-container">
+        <h2>Customer Attrition Prediction</h2>
+        <form action="/predict" method="post">
+            <label for="gender">Gender:</label>
+            <input type="number" name="gender" required>
+
+            <label for="SeniorCitizen">SeniorCitizen:</label>
+            <input type="number" step="0.01" name="SeniorCitizen" required>
+
+            <label for="Partner">Partner:</label>
+            <input type="number" name="Partner" required>
+
+            <label for="Dependents"> Dependents:</label>
+            <input type="number" name="Dependents" required>
+
+            <label for="tenure">Tenure:</label>
+            <input type="number" step="0.01" name="tenure" required>
+
+            <label for="Phoneservice">Phoneservice:</label>
+            <input type="number" step="0.01" name="Phoneservice" required>
+
+            <label for="multiline">MultipleLines:</label>
+            <input type="number" step="0.01" name="multiline" required>
+
+            <label for="InternetService">InternetService:</label>
+            <input type="number" step="0.01" name="InternetService" required>
+
+            <label for="OnlineSecurity">OnlineSecurity:</label>
+            <input type="number" step="0.01" name="OnlineSecurity" required>
+
+            <label for="OnlineBackup">OnlineBackup:</label>
+            <input type="number" step="0.01" name="OnlineBackup" required>
+
+            <label for="DeviceProtection">DeviceProtection:</label>
+            <input type="number" step="0.01" name="DeviceProtection" required>
+
+            <label for="TechSupport">TechSupport:</label>
+            <input type="number" step="0.01" name="TechSupport" required>
+
+            <label for="StreamingTV">StreamingTV:</label>
+            <input type="number" step="0.01" name="StreamingTV" required>
+
+            <label for="StreamingMovies">StreamingMovies:</label>
+            <input type="number" step="0.01" name="StreamingMovies" required>
+
+            <label for="contact">Contract:</label>
+            <input type="number" step="0.01" name="contact" required>
+
+            <label for="PaperlessBilling">PaperlessBilling:</label>
+            <input type="number" step="0.01" name="PaperlessBilling" required>
+
+            <label for="PaymentMethod">PaymentMethod:</label>
+            <input type="number" step="0.01" name="PaymentMethod" required>
+
+            <label for="MonthlyCharges">MonthlyCharges:</label>
+            <input type="number" step="0.01" name="MonthlyCharges" required>
+
+            <label for="totalcharge">TotalCharges:</label>
+            <input type="number" step="0.01" name="totalcharge" required>
+
+            <input type="submit" value="Predict">
+        </form>
+        {% if prediction_text %}
+        <div class="result">{{ prediction_text }}</div>
+        {% endif %}
+    </div>
+
+
+
+    <section class="features">
+        <div class="container">
+            <h2>How It Helps You</h2>
+
+            <div class="feature">
+                <div class="icon">
+                    <!-- <img src="https://img.icons8.com/ios-filled/50/000000/visible.png" alt="Identify At-Risk Customers"> -->
+                </div>
+                <div class="text">
+                    <h3>Identify At-Risk Customers</h3>
+                    <p>Quickly identify customers who are most likely to leave, allowing you to intervene before they
+                        churn.</p>
+                </div>
+            </div>
+
+            <div class="feature">
+                <div class="icon">
+                    <!-- <img src="https://img.icons8.com/ios-filled/50/000000/target.png"
+                        alt="Targeted Retention Strategies"> -->
+                </div>
+                <div class="text">
+                    <h3>Targeted Retention Strategies</h3>
+                    <p>Use the insights to craft personalized offers, discounts, or outreach programs aimed at keeping
+                        customers happy and engaged.</p>
+                </div>
+            </div>
+
+            <div class="feature">
+                <div class="icon">
+                    <!-- <img src="https://img.icons8.com/ios-filled/50/000000/smile.png" alt="Improve Customer Experience"> -->
+                </div>
+                <div class="text">
+                    <h3>Improve Customer Experience</h3>
+                    <p>By understanding why customers leave, businesses can improve their services and address pain
+                        points, leading to higher satisfaction and longer-lasting relationships.</p>
+                </div>
+            </div>
+
+            <div class="feature">
+                <div class="icon">
+                    <!-- <img src="https://img.icons8.com/ios-filled/50/000000/resources.png" alt="Optimize Resources"> -->
+                </div>
+                <div class="text">
+                    <h3>Optimize Resources</h3>
+                    <p>Focus efforts and resources on the customers who need attention the most, increasing the
+                        efficiency of your marketing and customer service efforts.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Customer Attrition Prediction. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
